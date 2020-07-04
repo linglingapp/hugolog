@@ -1,5 +1,5 @@
 baseurl = "https://usage.netlify.app/"
-title = "日本語と韓国語の用法"
+title = "日本語と韓国語の語法検索"
 theme = "pulp"
 canonifyurls = true
 hasCJKLanguage = true
@@ -11,12 +11,12 @@ hasCJKLanguage = true
     unsafe = true # Allow user HTML tags
 
 [params]
-    author = "Seo Mincheol"
+    author = "日本語と韓国語の語法検索"
     avatar = "avatar.jpg"
     # avatarDescription = "My avatar description"
     favicon = "favicon.ico"
     description = """
-        日本語と韓国語の用法について。
+        日本語と韓国語における（一部の）語法を，どのような本で取り上げているのか，検索できます。
     """
     publicationYear = "2020"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
@@ -31,21 +31,22 @@ hasCJKLanguage = true
 
 [[menu.main]]
     identifier = "blog"
-    # name = "Blog" #If display text link, cancel comment out
+    # name = "Search" #If display text link, cancel comment out
     pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
     url = "/blog/"
     weight = 10
 
+
 [[menu.main]]
-    identifier = "twitter"
-    # name = "Twitter"
-    pre = "<i class='fab fa-twitter fa-lg'></i>"
-    url = ""
+    identifier = "search"
+    # name = "Glossary of Linguistic Terms"
+    pre = "<i class='fas fa-search fa-lg'></i>"
+    url = "https://terms.netlify.app/"
     weight = 20
 
 [[menu.main]]
     identifier = "github"
     # name = "GitHub"
     pre = "<i class='fab fa-github fa-lg'></i>"
-    url = "https://github.com/linglingapp"
+    url = "https://github.com/linglingapp/hugolog"
     weight = 30

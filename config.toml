@@ -1,4 +1,4 @@
-baseurl = "https://github.com/linglingapp/hugolog"
+baseurl = "https://trusting-spence-e71272.netlify.app/"
 title = "Construction"
 theme = "pulp"
 canonifyurls = true

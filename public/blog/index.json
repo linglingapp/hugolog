@@ -1,6 +1,6 @@
 [
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go1.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go1.ja/",
         "title": "変数",
         "section": "blog",
         "tags": null,
@@ -9,7 +9,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go2.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go2.ja/",
         "title": "演算子",
         "section": "blog",
         "tags": null,
@@ -18,7 +18,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go3.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go3.ja/",
         "title": "条件演算子と条件文",
         "section": "blog",
         "tags": null,
@@ -27,7 +27,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go4.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go4.ja/",
         "title": "switch-caseとfor文",
         "section": "blog",
         "tags": null,
@@ -36,7 +36,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go5.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go5.ja/",
         "title": "関数",
         "section": "blog",
         "tags": null,
@@ -45,7 +45,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/go6.ja/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/go6.ja/",
         "title": "配列",
         "section": "blog",
         "tags": null,
@@ -54,7 +54,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/markdown-syntax/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/markdown-syntax/",
         "title": "マークダウン",
         "section": "blog",
         "tags": ["markdown","css","html","themes"],
@@ -63,7 +63,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/rich-content/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/rich-content/",
         "title": "Rich Content",
         "section": "blog",
         "tags": ["shortcodes","privacy"],
@@ -72,7 +72,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/placeholder-text/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/placeholder-text/",
         "title": "Placeholder Text",
         "section": "blog",
         "tags": ["markdown","text"],
@@ -81,7 +81,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/math-typesetting/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/math-typesetting/",
         "title": "Math Typesetting",
         "section": "blog",
         "tags": null,
@@ -90,7 +90,7 @@
     }
 ,
     {
-        "ref": "https://github.com/linglingapp/hugolog/blog/emoji-support/",
+        "ref": "https://trusting-spence-e71272.netlify.app/blog/emoji-support/",
         "title": "Emoji Support",
         "section": "blog",
         "tags": ["emoji"],

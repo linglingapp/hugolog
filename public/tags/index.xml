@@ -5,10 +5,19 @@
     <link>https://usage.netlify.app/tags/</link>
     <description>Recent content in Tags on 日本語と韓国語の語法検索</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://usage.netlify.app/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>日本語</title>
+      <link>https://usage.netlify.app/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.json</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://usage.netlify.app/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/index.json</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>css</title>

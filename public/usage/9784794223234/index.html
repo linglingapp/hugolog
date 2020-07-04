@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          微妙におかしな日本語 - 日本語と韓国語の語法検索
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Seo Mincheol" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://usage.netlify.app/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style.min.6f642c5866835106e8a19b94463576436c99be9e41a8714ab3df3daa95f6bf90.css" integrity="sha256-b2QsWGaDUQbooZuURjV2Q2yZvp5BqHFKs989qpX2v5A=">
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css" media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB&#43;BLd7VPoFFdCmg9OezbJR26lg/h&#43;Wb3/zb8I=">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="微妙におかしな日本語" />
+<meta property="og:description" content="変数のタイプ y = x &#43; 1において，xとyは値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://usage.netlify.app/usage/9784794223234/" />
+<meta property="article:published_time" content="2020-07-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-01T00:00:00+00:00" />
+<meta itemprop="name" content="微妙におかしな日本語">
+<meta itemprop="description" content="変数のタイプ y = x &#43; 1において，xとyは値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱">
+<meta itemprop="datePublished" content="2020-07-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2301">
+
+
+
+<meta itemprop="keywords" content="日本語," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://usage.netlify.app//img/avatar.jpg"/>
+<meta name="twitter:title" content="微妙におかしな日本語"/>
+<meta name="twitter:description" content="変数のタイプ y = x &#43; 1において，xとyは値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱"/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  </head>
+
+  <body>
+    
+  <h1>微妙におかしな日本語</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://usage.netlify.app//img/avatar.jpg" alt="">
+    <a href="https://usage.netlify.app/"><img class="avatar-border" src="https://usage.netlify.app//img/avatar-border.svg" alt=""></a>
+  </div>
+  
+  <h2><a class="author" href="https://usage.netlify.app/">Seo Mincheol</a></h2>
+</header>
+
+  
+  
+  
+  <p class="date">July 1, 2020</p>
+  
+  
+  
+  <div id="tags">
+    <ul>
+      
+        
+        
+      
+    </ul>
+  </div>
+  
+  
+  <div id="contentBody">
+    <h2 id="変数のタイプ">変数のタイプ</h2>
+<p><em>y</em> = <em>x</em> + 1において，<em>x</em>と<em>y</em>は値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱である変数も変化する。</p>
+<p>変数の概念を理解するためには，簡単な算数をやってみるとよい。<code>//</code>で始まっているところは，注釈なので，プログラムを実行すると無視される。なので，わざわざそれまで書く必要はない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#75715e">// プログラムの基準点になるファイルには，以下のように書いておく。
+</span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#75715e">// 画面に文字列を出力
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// main関数（function）を作ってみよう。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// varは「変数の宣言」を意味する。var aと書くと，名前がaの変数を宣言することになる。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// int は integer，つまり，「整数」の略である。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// var a int が意味するのは，「aという変数を宣言する。ただし，aのタイプは整数」である。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">int</span>
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">int</span>
+    <span style="color:#75715e">// 空っぽの変数aとbに，整数を入れてみよう。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">a</span> = <span style="color:#ae81ff">1</span>
+    <span style="color:#a6e22e">b</span> = <span style="color:#ae81ff">2</span>
+    <span style="color:#75715e">// printは「画面に出力せよ」ということである。printlnは「画面に出力して一行開けろ」という意味。
+</span><span style="color:#75715e"></span>    println(<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>)
+}</code></pre></div>
+<p>以上のようにコードを書いて実行してみよう。ここではファイル名を<code>math</code>にしている。</p>
+<pre><code>go run math.go
+</code></pre>
+<p>問題なければ，画面には3が表示される。</p>
+<h3 id="int整数">int（整数）</h3>
+<p>プログラミングでの変数は，タイプ（type）という属性を持つ。先ほどの変数aとbは，<code>int</code>だからタイプは「整数」である。ここに他のタイプ，たとえば，文字列「こんにちは」を入れることはできない。</p>
+<h3 id="string文字列">string（文字列）</h3>
+<p>変数に文字列を入れたいのであれば，変数のタイプを変更する必要がある。変数に文字列を入れるためには，<code>int</code>の代わりに<code>string</code>を使えばよい。ここで注意すべき点は，文字列を変数に入れるときに，文字列の前後にダブルクォーテーション（&quot;&quot;）を付けることである。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span> <span style="color:#66d9ef">string</span>
+    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">b</span> <span style="color:#66d9ef">string</span>
+    <span style="color:#a6e22e">a</span> = <span style="color:#e6db74">&#34;こんにちは&#34;</span>
+    <span style="color:#a6e22e">b</span> = <span style="color:#e6db74">&#34;！&#34;</span>
+    println(<span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>)
+}</code></pre></div>
+<p>これを実行してみると，「こんにちは！」が表示される。</p>
+<h3 id="float浮動小数">float（浮動小数）</h3>
+<p>整数と浮動小数は，どちらも数字だから同じタイプとして考えるかもしれないけど，違うタイプである。Go言語には<code>float32</code>と<code>float64</code>がある。それぞれ，4バイトと8バイトを表す。</p>
+<h3 id="boolブーリアン型">bool（ブーリアン型）</h3>
+<p><code>bool</code>はブーリアン型（Boolean）で，<code>true</code>と<code>false</code>の二つがある。初期値は<code>false</code>。</p>
+<h2 id="面倒くさい">面倒くさい</h2>
+<p>変数のタイプを毎回宣言するのは，面倒くさい。勝手に値のタイプを判断して，変数に入れてほしい。</p>
+<pre><code>var a int
+a = 1
+</code></pre>
+<p>この2行は，次の1行で済む。</p>
+<pre><code>var a = 1
+</code></pre>
+<p>このように書けるのは，整数に限った話ではない。</p>
+<pre><code>var a = 3.14
+</code></pre>
+<p><code>var</code>を書くのも面倒なので，もっと短くしてみよう。</p>
+<pre><code>a := 1
+</code></pre>
+<p>これは，先ほどの<code>var a = 1</code>と同じである。このようにすると，<code>var</code>と<code>int</code>を使ってわざわざタイプを宣言しなくて済む。楽々。</p>
+<p>色んな変数がある場合，紛らわしいかもしれない。そのようなときには，以下のようにして，どのようなタイプなのかを書いておくのが役に立つかもしれない。</p>
+<pre><code>var a int = 1
+</code></pre>
+<h2 id="go言語のprint">Go言語のPrint</h2>
+<p>Printについて少しだけ補足。<code>fmt</code>を利用するので，次のようにインポートしておく。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+)</code></pre></div>
+<p>そして，aとbという変数に適当な値を割り当てて，次のようにしてみよう。変数に値を入れる方法がわからなければ，上にあるのでそちらに戻ろう。</p>
+<pre><code>fmt.Printf(&quot;%v\n&quot;, a + b)
+</code></pre>
+<p>このようにすると，&ldquo;&ldquo;で囲ったところには，aとbを足した値が入り，画面に表示される。<code>a + b</code>がそのまま文字列として入るのではない。<code>%v</code>は，<code>a + b</code>の結果が「整数」「浮動小数」「文字列」等の中でどのタイプなのか，自ら判断する。<code>\n</code>は改行。</p>
+<p>上にある1行は，次のようにすることと同じである。</p>
+<pre><code>fmt.Println(a + b)
+</code></pre>
+<p>ところで，<code>fmt</code>はピリオドで<code>Printf</code>や<code>Println</code>とつながっている。これは，<code>fmt</code>というパッケージから<code>Printf</code>や<code>Println</code>という機能を読み込んで使用する，という意味である。
+<code>fmt</code>パッケージには，他にどのような機能があるのか，<a href="https://golang.org/pkg/fmt/">ここ</a>で確認できる。</p>
+<p>ついでに，<code>Println</code>という機能を試してみよう。まずは，どのように使えるのかを確認。</p>
+<pre><code>func Println(a ...interface{}) (n int, err error)
+</code></pre>
+<p>何かわからないやつが出てきた。<code>a ... interface{}</code>と，その右側にある<code>err error</code>が何かわからない。文法の下には説明も書いてあるので，それも見てみる。</p>
+<blockquote>
+<p>Println formats using the default formats for its operands and writes to standard output. Spaces are always added between operands and a newline is appended. It returns the number of bytes written and any write error encountered.</p>
+</blockquote>
+<p>わかるようなわからないような…</p>
+<p>さらにその下には例が書いてある。外国語学習のときもそうだが，単語の説明を見てわからなかったのが，用例を見て「あ，わかった！」となる瞬間があると思う。プログラミング言語もいっしょだ。</p>
+<p><a href="https://golang.org/pkg/fmt/#Println">ここ</a>で<code>Example</code>を押すと，次の例が現れる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> = <span style="color:#e6db74">&#34;Kim&#34;</span>, <span style="color:#ae81ff">22</span>
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">name</span>, <span style="color:#e6db74">&#34;is&#34;</span>, <span style="color:#a6e22e">age</span>, <span style="color:#e6db74">&#34;years old.&#34;</span>)
+
+	<span style="color:#75715e">// It is conventional not to worry about any
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// error returned by Println.
+</span><span style="color:#75715e"></span>
+}</code></pre></div>
+<p>例といっしょに右下には<code>Run</code>というボタンがある。押してみると「Program exited.」というメッセージとともに，<code>Kim is 22 years old.</code>が表示される。総合的に考えて見ると，<code>const</code>というのが何かはわからないが，なんとなく，<code>name</code>と<code>age</code>にそれぞれ<code>Kim</code>という文字列（string）と<code>22</code>という整数（int）が入るような気がする。そして，それらの変数が<code>fmt.Println</code>というパッケージの機能で「name」と「age」という文字列といっしょに出力されるのではないだろうか。試しに，<code>Kim</code>と<code>22</code>を<code>太郎</code>と<code>100</code>に変えてプログラムを実行してみる。すると，次のように表示される。</p>
+<pre><code>太郎 is 100 years old.
+</code></pre>
+<p>Voilà!</p>
+
+  </div>
+  <footer>
+  <p>
+  Copyright ©2020 Seo Mincheol, All Rights Reserved.
+  </p>
+</footer>
+
+
+  </body>
+</html>

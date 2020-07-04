@@ -1,0 +1,19 @@
+[
+    {
+        "ref": "https://usage.netlify.app/usage/9784794223234/",
+        "title": "微妙におかしな日本語",
+        "section": "usage",
+        "tags": ["日本語"],
+        "date" : "2020.07.01",
+        "body": "変数のタイプ y = x + 1において，xとyは値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱である変数も変化する。\n変数の概念を理解するためには，簡単な算数をやってみるとよい。//で始まっているところは，注釈なので，プログラムを実行すると無視される。なので，わざわざそれまで書く必要はない。\n// プログラムの基準点になるファイルには，以下のように書いておく。 package main // 画面に文字列を出力  // main関数（function）を作ってみよう。 func main() { // varは「変数の宣言」を意味する。var aと書くと，名前がaの変数を宣言することになる。  // int は integer，つまり，「整数」の略である。  // var a int が意味するのは，「aという変数を宣言する。ただし，aのタイプは整数」である。  var a int var b int // 空っぽの変数aとbに，整数を入れてみよう。  a = 1 b = 2 // printは「画面に出力せよ」ということである。printlnは「画面に出力して一行開けろ」という意味。  println(a + b) } 以上のようにコードを書いて実行してみよう。ここではファイル名をmathにしている。\ngo run math.go\r 問題なければ，画面には3が表示される。\nint（整数） プログラミングでの変数は，タイプ（type）という属性を持つ。先ほどの変数aとbは，intだからタイプは「整数」である。ここに他のタイプ，たとえば，文字列「こんにちは」を入れることはできない。\nstring（文字列） 変数に文字列を入れたいのであれば，変数のタイプを変更する必要がある。変数に文字列を入れるためには，intの代わりにstringを使えばよい。ここで注意すべき点は，文字列を変数に入れるときに，文字列の前後にダブルクォーテーション（\u0026quot;\u0026quot;）を付けることである。\npackage main func main() { var a string var b string a = \u0026#34;こんにちは\u0026#34; b = \u0026#34;！\u0026#34; println(a + b) } これを実行してみると，「こんにちは！」が表示される。\nfloat（浮動小数） 整数と浮動小数は，どちらも数字だから同じタイプとして考えるかもしれないけど，違うタイプである。Go言語にはfloat32とfloat64がある。それぞれ，4バイトと8バイトを表す。\nbool（ブーリアン型） boolはブーリアン型（Boolean）で，trueとfalseの二つがある。初期値はfalse。\n面倒くさい 変数のタイプを毎回宣言するのは，面倒くさい。勝手に値のタイプを判断して，変数に入れてほしい。\nvar a int\ra = 1\r この2行は，次の1行で済む。\nvar a = 1\r このように書けるのは，整数に限った話ではない。\nvar a = 3.14\r varを書くのも面倒なので，もっと短くしてみよう。\na := 1\r これは，先ほどのvar a = 1と同じである。このようにすると，varとintを使ってわざわざタイプを宣言しなくて済む。楽々。\n色んな変数がある場合，紛らわしいかもしれない。そのようなときには，以下のようにして，どのようなタイプなのかを書いておくのが役に立つかもしれない。\nvar a int = 1\r Go言語のPrint Printについて少しだけ補足。fmtを利用するので，次のようにインポートしておく。\npackage main import ( \u0026#34;fmt\u0026#34; ) そして，aとbという変数に適当な値を割り当てて，次のようにしてみよう。変数に値を入れる方法がわからなければ，上にあるのでそちらに戻ろう。\nfmt.Printf(\u0026quot;%v\\n\u0026quot;, a + b)\r このようにすると，\u0026ldquo;\u0026ldquo;で囲ったところには，aとbを足した値が入り，画面に表示される。a + bがそのまま文字列として入るのではない。%vは，a + bの結果が「整数」「浮動小数」「文字列」等の中でどのタイプなのか，自ら判断する。\\nは改行。\n上にある1行は，次のようにすることと同じである。\nfmt.Println(a + b)\r ところで，fmtはピリオドでPrintfやPrintlnとつながっている。これは，fmtというパッケージからPrintfやPrintlnという機能を読み込んで使用する，という意味である。 fmtパッケージには，他にどのような機能があるのか，ここで確認できる。\nついでに，Printlnという機能を試してみよう。まずは，どのように使えるのかを確認。\nfunc Println(a ...interface{}) (n int, err error)\r 何かわからないやつが出てきた。a ... interface{}と，その右側にあるerr errorが何かわからない。文法の下には説明も書いてあるので，それも見てみる。\n Println formats using the default formats for its operands and writes to standard output. Spaces are always added between operands and a newline is appended. It returns the number of bytes written and any write error encountered.\n わかるようなわからないような…\nさらにその下には例が書いてある。外国語学習のときもそうだが，単語の説明を見てわからなかったのが，用例を見て「あ，わかった！」となる瞬間があると思う。プログラミング言語もいっしょだ。\nここでExampleを押すと，次の例が現れる。\npackage main import ( \u0026#34;fmt\u0026#34; ) func main() { const name, age = \u0026#34;Kim\u0026#34;, 22 fmt.Println(name, \u0026#34;is\u0026#34;, age, \u0026#34;years old.\u0026#34;) // It is conventional not to worry about any \t// error returned by Println.  } 例といっしょに右下にはRunというボタンがある。押してみると「Program exited.」というメッセージとともに，Kim is 22 years old.が表示される。総合的に考えて見ると，constというのが何かはわからないが，なんとなく，nameとageにそれぞれKimという文字列（string）と22という整数（int）が入るような気がする。そして，それらの変数がfmt.Printlnというパッケージの機能で「name」と「age」という文字列といっしょに出力されるのではないだろうか。試しに，Kimと22を太郎と100に変えてプログラムを実行してみる。すると，次のように表示される。\n太郎 is 100 years old.\r Voilà!\n"
+    }
+,
+    {
+        "ref": "https://usage.netlify.app/usage/4061490427/",
+        "title": "日本語誤用・慣用小辞典",
+        "section": "usage",
+        "tags": ["日本語"],
+        "date" : "2020.07.01",
+        "body": "演算子の種類 項がいくつかによって「単項演算子」と「二項演算子」がある。\nGo言語には，次のような演算子がある。\n\u0026amp;はand，|はorである。^は，単項演算子として使われる場合はnot，二項演算子として使われる場合はxorである。したがって，a^bはxor，^bはnoである。\n"
+    }
+]

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          条件演算子と条件文 - 日本語と韓国語の語法検索
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Seo Mincheol" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://usage.netlify.app/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style.min.6f642c5866835106e8a19b94463576436c99be9e41a8714ab3df3daa95f6bf90.css" integrity="sha256-b2QsWGaDUQbooZuURjV2Q2yZvp5BqHFKs989qpX2v5A=">
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css" media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB&#43;BLd7VPoFFdCmg9OezbJR26lg/h&#43;Wb3/zb8I=">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="条件演算子と条件文" />
+<meta property="og:description" content="条件演算子 条件演算子には，&gt;（大なり）,&lt;（小なり）,==（等しい）,!=（等しくない）,&lt;=（小さいか等しい）,&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://usage.netlify.app/usage/go3.ja/" />
+<meta property="article:published_time" content="2020-01-27T00:36:14+09:00" />
+<meta property="article:modified_time" content="2020-01-27T00:36:14+09:00" />
+<meta itemprop="name" content="条件演算子と条件文">
+<meta itemprop="description" content="条件演算子 条件演算子には，&gt;（大なり）,&lt;（小なり）,==（等しい）,!=（等しくない）,&lt;=（小さいか等しい）,&gt;">
+<meta itemprop="datePublished" content="2020-01-27T00:36:14&#43;09:00" />
+<meta itemprop="dateModified" content="2020-01-27T00:36:14&#43;09:00" />
+<meta itemprop="wordCount" content="1418">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://usage.netlify.app//img/avatar.jpg"/>
+<meta name="twitter:title" content="条件演算子と条件文"/>
+<meta name="twitter:description" content="条件演算子 条件演算子には，&gt;（大なり）,&lt;（小なり）,==（等しい）,!=（等しくない）,&lt;=（小さいか等しい）,&gt;"/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  </head>
+
+  <body>
+    
+  <h1>条件演算子と条件文</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://usage.netlify.app//img/avatar.jpg" alt="">
+    <a href="https://usage.netlify.app/"><img class="avatar-border" src="https://usage.netlify.app//img/avatar-border.svg" alt=""></a>
+  </div>
+  
+  <h2><a class="author" href="https://usage.netlify.app/">Seo Mincheol</a></h2>
+</header>
+
+  
+  
+  
+  <p class="date">January 27, 2020</p>
+  
+  
+  
+  
+  <div id="contentBody">
+    <h2 id="条件演算子">条件演算子</h2>
+<p>条件演算子には，<code>&gt;</code>（大なり）,<code>&lt;</code>（小なり）,<code>==</code>（等しい）,<code>!=</code>（等しくない）,<code>&lt;=</code>（小さいか等しい）,<code>&gt;=</code>（大きいか等しい）がある。また，<code>&amp;&amp;</code>（かつ）,<code>||</code>（または）もあるが，これらはboolタイプの結果を二つ要する二項演算子である。<code>&amp;&amp;</code>は両者が真である場合にTrueに，<code>||</code>の場合は，どちらかの一方が真である場合，Trueを返す。以下のコードを実行すると<code>true</code>を返す。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>    
+)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span> &lt; <span style="color:#ae81ff">2</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">3</span> &lt; <span style="color:#ae81ff">4</span>
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>)
+}</code></pre></div>
+<h2 id="条件文">条件文</h2>
+<p>「もし，雨が降るのであれば，傘の売れ行きが伸びるだろう。」というのが条件文である。</p>
+<p>まず<code>if</code>を利用して条件を書く（もし，雨が降るのであれば）。その後，条件を満たした場合（true）はどのようにするかを書く。その次に，条件を満たさない場合（false）はどのようにするのかを書く。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>    
+)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#75715e">// aが3と等しければ…
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> {
+    <span style="color:#75715e">// 次の文を出力する。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3です。&#34;</span>)
+    }
+    <span style="color:#75715e">// 等しくなければ，次の文を出力する。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3ではないです。&#34;</span>)
+}</code></pre></div>
+<p>上記は，<code>else</code>を利用して次のように書くこともできる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>    
+)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#75715e">// aが3と等しければ…
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> {
+    <span style="color:#75715e">// 次の文を出力する。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3です。&#34;</span>)
+    <span style="color:#75715e">// 等しくなければ，次の文を出力する。
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3ではないです。&#34;</span>)
+    }
+}</code></pre></div>
+<p>ときには，条件を増やしたい場合もある。「ウーロン茶ください。もし，なければ緑茶をください。それもなければ，水でいいでｓ。」のように。これを表すためには，<code>if</code>と<code>else</code>を組み合わせる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>    
+)
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">a</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#75715e">// aが3と等しければ…
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">3</span> {
+    <span style="color:#75715e">// 次の文を出力する。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3です。&#34;</span>)
+    <span style="color:#75715e">// aが2と等しければ，次の文を出力する。
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは2です。&#34;</span>)
+    } <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// aが3でも2でもない場合，以下を出力する。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは3でも，2でもないです。&#34;</span>)
+    }
+    <span style="color:#75715e">// 以下は条件文と関係ないので，なくても問題ない。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;aは&#34;</span>, <span style="color:#a6e22e">a</span>, <span style="color:#e6db74">&#34;です。&#34;</span>)
+}</code></pre></div>
+<p><code>else if</code>は一つ以上あってもいいし，一番最後の<code>else</code>はあってもいいし，なくてもいい。</p>
+<h2 id="四則演算する計算機">四則演算する計算機</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#75715e">// 標準入力のため
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;os&#34;</span>
+    <span style="color:#75715e">// 入力から1行をもらうため
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;bufio&#34;</span>
+    <span style="color:#75715e">// 文字列から入らない部分を削除するため
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;strings&#34;</span>
+    <span style="color:#75715e">// stringをintに変えるため
+</span><span style="color:#75715e"></span>    <span style="color:#e6db74">&#34;strconv&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;演算する数字を入力してください。&#34;</span>)
+    <span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdin</span>)
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span>  <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+    <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;数字をもう一つ入力してください。&#34;</span>)
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+    <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;入力した数字は，%d，%dです。&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;続いて，演算子を「+, -, *, /」の中から選んでください。&#34;</span>)
+
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;+&#34;</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d + %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n2</span>)
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;-&#34;</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d - %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">n2</span>)
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d * %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">n2</span>)
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">line</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/&#34;</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d / %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">n2</span>)
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;入力が間違っています。&#34;</span>)
+    }
+}</code></pre></div>
+
+  </div>
+  <footer>
+  <p>
+  Copyright ©2020 Seo Mincheol, All Rights Reserved.
+  </p>
+</footer>
+
+
+  </body>
+</html>

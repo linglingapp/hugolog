@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          関数 - 日本語と韓国語の語法検索
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Seo Mincheol" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://usage.netlify.app/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style.min.6f642c5866835106e8a19b94463576436c99be9e41a8714ab3df3daa95f6bf90.css" integrity="sha256-b2QsWGaDUQbooZuURjV2Q2yZvp5BqHFKs989qpX2v5A=">
+  
+  
+  
+  <link rel="stylesheet" href="https://usage.netlify.app/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css" media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB&#43;BLd7VPoFFdCmg9OezbJR26lg/h&#43;Wb3/zb8I=">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="関数" />
+<meta property="og:description" content="関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://usage.netlify.app/usage/go5.ja/" />
+<meta property="article:published_time" content="2020-01-20T00:36:14+09:00" />
+<meta property="article:modified_time" content="2020-01-20T00:36:14+09:00" />
+<meta itemprop="name" content="関数">
+<meta itemprop="description" content="関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値">
+<meta itemprop="datePublished" content="2020-01-20T00:36:14&#43;09:00" />
+<meta itemprop="dateModified" content="2020-01-20T00:36:14&#43;09:00" />
+<meta itemprop="wordCount" content="1941">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://usage.netlify.app//img/avatar.jpg"/>
+<meta name="twitter:title" content="関数"/>
+<meta name="twitter:description" content="関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値"/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  </head>
+
+  <body>
+    
+  <h1>関数</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://usage.netlify.app//img/avatar.jpg" alt="">
+    <a href="https://usage.netlify.app/"><img class="avatar-border" src="https://usage.netlify.app//img/avatar-border.svg" alt=""></a>
+  </div>
+  
+  <h2><a class="author" href="https://usage.netlify.app/">Seo Mincheol</a></h2>
+</header>
+
+  
+  
+  
+  <p class="date">January 20, 2020</p>
+  
+  
+  
+  
+  <div id="contentBody">
+    <h2 id="関数">関数</h2>
+<p>プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。
+Go言語で関数は<code>func</code>から始まる。そして，最後に得られた値は<code>return</code>で返される。
+プログラマーは，なぜ関数を使うのだろうか。ここには二つの理由があると思われる。一つは，繰り返しが嫌なので特定の機能を「モジュール化」したいからであり，もう一つは，機能を分離したいからであろう。
+ある機能をモジュール化しておくと，自分がその機能を手軽に使えるだけでなく，他の人もそれを呼び出し，簡単に使うことができる。その際，モジュールの中には，なるべく最小限の機能を含んでいるのが望ましい。余計なものまで読み込む必要はないし，機能別に分けている方が読みやすいし，メンテナンスもしやすいからである。</p>
+<p>簡単な関数を作ってみよう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#75715e">// 引数として関数がもらうのは，intタイプのxとy二つである。returnで返されるのは，intタイプ一つのみである。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">y</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#75715e">// add関数を呼び出し，iとi+2という引数を渡す。
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">// 最初に渡されるのは0と2である。次は1と3が渡される。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d + %d = %d\n&#34;</span>, <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>, <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>))
+    }
+}</code></pre></div>
+<p>もう一つ，関数を作ってみよう。二つのfuncの位置は，一方が上でも，下でも関係ない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// `fun1`という関数を呼び出して，引数として2と3を渡す。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// `return`された結果は，それぞれaとbという変数に格納される。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fun1</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)   
+}
+
+<span style="color:#75715e">// `return`するのが二つ以上の場合，括弧で囲む。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fun1</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span>) {
+    <span style="color:#75715e">// xとyを受け取ったが，返すのは逆の順番であるyとx。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">x</span>
+}</code></pre></div>
+<p>関数の中で，他の関数を呼び出すこともできる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fun1</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>)   
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fun1</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">int</span>) {
+    <span style="color:#75715e">// 関数fun2を呼び出す。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">fun2</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>)
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">y</span>, <span style="color:#a6e22e">x</span>
+}
+
+<span style="color:#75715e">// 上にあるfun1のx，yは，下のfun2にあるx，yは，同じものではない。
+</span><span style="color:#75715e">// 人間が読んでわかりやすい変数名を付けよう。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fun2</span>(<span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;fun2&#34;</span>, <span style="color:#a6e22e">x</span>, <span style="color:#a6e22e">y</span>)
+}</code></pre></div>
+<h2 id="関数の再帰呼び出し">関数の再帰呼び出し</h2>
+<p>関数の中で，他の関数ではなく，自分自身を呼び出すこともできる。これを再帰呼び出し（recursive call）と言う。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">f1</span>(<span style="color:#ae81ff">10</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">f1</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int</span>) {
+    <span style="color:#75715e">// xが0に等しい場合は，`f1`関数が終わる。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// `main`関数に戻るのは`return`が実行された後である。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#66d9ef">return</span>
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">x</span>)
+    <span style="color:#75715e">// 関数`f1`の中で，再び関数`f1`を呼び出す。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">f1</span>(<span style="color:#a6e22e">x</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+}</code></pre></div>
+<p>再帰呼び出しを利用して，1から10まで足していく関数を作ってみよう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// `sum`関数に10と0を渡す。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 結果が`return`されると変数sに格納する。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">s</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sum</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">s</span>)
+}
+
+<span style="color:#75715e">// 最初に，xとsには10と0が代入される。
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">s</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#75715e">// xが0になった場合，sを返す。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>
+    }
+    <span style="color:#75715e">// sにxの値を足してsの値を更新する。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 最初は，10 = 10 + 0なのでsは10。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">s</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">x</span>
+    <span style="color:#75715e">// 再帰呼び出しで`sum`関数を呼び出す。
+</span><span style="color:#75715e"></span>    <span style="color:#75715e">// 最初は，10と10が渡されが，x-1なので9と10。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">sum</span>(<span style="color:#a6e22e">x</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">s</span>)
+}</code></pre></div>
+<p>結果として，55が出力される。</p>
+<p>上記のような関数の再帰呼び出しの代わりに，for文を使うこともできる。逆に，for文を再帰呼び出しを利用して書くことも可能である。それでは，どちらを使うべきか。それは目的によって違ってくる。</p>
+<p>for文より，再帰呼び出しを利用した方がいい例として，<a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0">フィボナッチ数列</a>を考えてみよう。</p>
+<p>フィボナッチ数列は，以下のように定義される。</p>
+<ul>
+<li>f(0)=1</li>
+<li>f(1)=1</li>
+<li>f(x)=f(x-1)+f(x-2)</li>
+</ul>
+<p>たとえば，f(2)の場合，f(2-1)+f(2-2)，つまり，f(1)+f(0)なので定義に従って結果は2となる。そして，f(3)は3，f(4)は5のようになる。</p>
+<p>それでは，フィボナッチ数列を再帰呼び出しを使って書いてみよう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// ここでは，f(10)の値を求めてみよう。
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">f</span>(<span style="color:#ae81ff">10</span>)
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">result</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">x</span> <span style="color:#66d9ef">int</span>) <span style="color:#66d9ef">int</span> {
+    <span style="color:#75715e">// f(0)=1
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    }
+    <span style="color:#75715e">// f(1)=1
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    }
+    <span style="color:#75715e">// f(x)=f(x-1)+f(x-2)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">x</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">+</span> <span style="color:#a6e22e">f</span>(<span style="color:#a6e22e">x</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>)
+}</code></pre></div>
+<p>結果は，89である。このように，数学的に定義されているものをプログラミングする場合は，再帰呼び出しを用いるのがよい。これをfor文で表すこともできるが，やや難しい。</p>
+<p>再帰呼び出しは，for文より遅い。にもかかわらず，再帰呼び出しを使う理由の一つは，数学的定義をよく表現できるからである。</p>
+<p>Haskell，Lisp，Scalaのような関数型プログラミング言語は，再帰呼び出しに特化されている。そのため，メモリの消費や速度など，あまり気にせず，再帰呼び出しを使うことができる。一方，<strong>Go言語は関数型言語ではない</strong>ので，メモリの消費量も多く，遅い。そのため，同じ結果を導き出すのに，再帰呼び出しより，for文の方が早いと言える。むろん，上記のような簡単なプログラミングだけを見ると，どちらにしても関係なさそうだが。</p>
+<p>여기서도 알아보도록 하자.</p>
+
+  </div>
+  <footer>
+  <p>
+  Copyright ©2020 Seo Mincheol, All Rights Reserved.
+  </p>
+</footer>
+
+
+  </body>
+</html>

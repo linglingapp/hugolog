@@ -18,7 +18,7 @@ hasCJKLanguage = true
     description = """
         日本語と韓国語の用法について。
     """
-    publicationYear = "2019"
+    publicationYear = "2020"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
     # singlePageDateFormat = "January 2, 2006"
     # custom_css = ["/css/custom.css"]
@@ -40,7 +40,7 @@ hasCJKLanguage = true
     identifier = "twitter"
     # name = "Twitter"
     pre = "<i class='fab fa-twitter fa-lg'></i>"
-    url = "https://twitter.com/username"
+    url = ""
     weight = 20
 
 [[menu.main]]
@@ -54,5 +54,5 @@ hasCJKLanguage = true
     identifier = "email"
     # name = "Email"
     pre = "<i class='fa fa-envelope fa-lg'></i>"
-    url = "mailto:username@example.com"
+    url = "mailto:"
     weight = 40

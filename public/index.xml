@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Construction</title>
+    <link>https://github.com/linglingapp/hugolog/</link>
+    <description>Recent content on Construction</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 28 Jan 2020 00:36:14 +0900</lastBuildDate>
+    
+	<atom:link href="https://github.com/linglingapp/hugolog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>変数</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go1.ja/</link>
+      <pubDate>Tue, 28 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go1.ja/</guid>
+      <description>変数のタイプ y = x + 1において，xとyは値が変わり得るので「変数」と言う。プログラミングにおける「変数」もそうである。代入する値によって，箱</description>
+    </item>
+    
+    <item>
+      <title>演算子</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go2.ja/</link>
+      <pubDate>Tue, 28 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go2.ja/</guid>
+      <description>演算子の種類 項がいくつかによって「単項演算子」と「二項演算子」がある。 Go言語には，次のような演算子がある。 &amp;amp;はand，|はorであ</description>
+    </item>
+    
+    <item>
+      <title>条件演算子と条件文</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go3.ja/</link>
+      <pubDate>Mon, 27 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go3.ja/</guid>
+      <description>条件演算子 条件演算子には，&amp;gt;（大なり）,&amp;lt;（小なり）,==（等しい）,!=（等しくない）,&amp;lt;=（小さいか等しい）,&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>switch-caseとfor文</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go4.ja/</link>
+      <pubDate>Fri, 24 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go4.ja/</guid>
+      <description>switch-case ifとelseを何回も繰り返して書くのは面倒だ。もっと短く書きたい。そこで使うのはswitchとcaseである。 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;bufio&amp;#34; &amp;#34;strings&amp;#34; &amp;#34;strconv&amp;#34; ) func main() {</description>
+    </item>
+    
+    <item>
+      <title>関数</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go5.ja/</link>
+      <pubDate>Mon, 20 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go5.ja/</guid>
+      <description>関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値</description>
+    </item>
+    
+    <item>
+      <title>配列</title>
+      <link>https://github.com/linglingapp/hugolog/blog/go6.ja/</link>
+      <pubDate>Sun, 19 Jan 2020 00:36:14 +0900</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/go6.ja/</guid>
+      <description>配列の宣言 変数には一つ以上の値を入れることもできる。配列（array）を使えば，たくさんの値を格納することができる。 package main import &amp;#34;fmt&amp;#34; func main() { // 箱（配列</description>
+    </item>
+    
+    <item>
+      <title>マークダウン</title>
+      <link>https://github.com/linglingapp/hugolog/blog/markdown-syntax/</link>
+      <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/markdown-syntax/</guid>
+      <description>&lt;p&gt;日本語はどうかな。
+This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rich Content</title>
+      <link>https://github.com/linglingapp/hugolog/blog/rich-content/</link>
+      <pubDate>Sun, 10 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/rich-content/</guid>
+      <description>&lt;p&gt;Hugo ships with several &lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#use-hugo-s-built-in-shortcodes&#34;&gt;Built-in Shortcodes&lt;/a&gt; for rich content, along with a &lt;a href=&#34;https://gohugo.io/about/hugo-and-gdpr/&#34;&gt;Privacy Config&lt;/a&gt; and a set of Simple Shortcodes that enable static and no-JS versions of various social media embeds.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Placeholder Text</title>
+      <link>https://github.com/linglingapp/hugolog/blog/placeholder-text/</link>
+      <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/placeholder-text/</guid>
+      <description>&lt;h2 id=&#34;mole-et-vultus-populifer-quaque-primoque-non&#34;&gt;Mole et vultus populifer quaque primoque non&lt;/h2&gt;
+&lt;p&gt;Lorem est tota propiore conpellat pectoribus de
+pectora summo.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Math Typesetting</title>
+      <link>https://github.com/linglingapp/hugolog/blog/math-typesetting/</link>
+      <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/math-typesetting/</guid>
+      <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Emoji Support</title>
+      <link>https://github.com/linglingapp/hugolog/blog/emoji-support/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/linglingapp/hugolog/blog/emoji-support/</guid>
+      <description>&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

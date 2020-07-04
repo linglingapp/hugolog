@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>
+      
+          switch-caseとfor文 - Construction
+      
+  </title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Seo Mincheol" />
+  <link rel="shortcut icon" type="image/x-icon" href="https://github.com/linglingapp/hugolog/img/favicon.ico">
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="https://github.com/linglingapp/hugolog/style.min.6f642c5866835106e8a19b94463576436c99be9e41a8714ab3df3daa95f6bf90.css" integrity="sha256-b2QsWGaDUQbooZuURjV2Q2yZvp5BqHFKs989qpX2v5A=">
+  
+  
+  
+  <link rel="stylesheet" href="https://github.com/linglingapp/hugolog/style-dark.min.0a647fb6c07e04b77b54fa0515d0a683d39ecdb251dba960fe1f966f7ff36fc2.css" media="(prefers-color-scheme: dark)" integrity="sha256-CmR/tsB&#43;BLd7VPoFFdCmg9OezbJR26lg/h&#43;Wb3/zb8I=">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+  
+
+  <meta property="og:title" content="switch-caseとfor文" />
+<meta property="og:description" content="switch-case ifとelseを何回も繰り返して書くのは面倒だ。もっと短く書きたい。そこで使うのはswitchとcaseである。 package main import ( &#34;fmt&#34; &#34;os&#34; &#34;bufio&#34; &#34;strings&#34; &#34;strconv&#34; ) func main() {" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/linglingapp/hugolog/blog/go4.ja/" />
+<meta property="article:published_time" content="2020-01-24T00:36:14+09:00" />
+<meta property="article:modified_time" content="2020-01-24T00:36:14+09:00" />
+<meta itemprop="name" content="switch-caseとfor文">
+<meta itemprop="description" content="switch-case ifとelseを何回も繰り返して書くのは面倒だ。もっと短く書きたい。そこで使うのはswitchとcaseである。 package main import ( &#34;fmt&#34; &#34;os&#34; &#34;bufio&#34; &#34;strings&#34; &#34;strconv&#34; ) func main() {">
+<meta itemprop="datePublished" content="2020-01-24T00:36:14&#43;09:00" />
+<meta itemprop="dateModified" content="2020-01-24T00:36:14&#43;09:00" />
+<meta itemprop="wordCount" content="1580">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:image" content="https://github.com/linglingapp/hugolog/img/avatar.jpg"/>
+<meta name="twitter:title" content="switch-caseとfor文"/>
+<meta name="twitter:description" content="switch-case ifとelseを何回も繰り返して書くのは面倒だ。もっと短く書きたい。そこで使うのはswitchとcaseである。 package main import ( &#34;fmt&#34; &#34;os&#34; &#34;bufio&#34; &#34;strings&#34; &#34;strconv&#34; ) func main() {"/>
+
+  <!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+  <![endif]-->
+
+  <!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+  <![endif]-->
+
+  </head>
+
+  <body>
+    
+  <h1>switch-caseとfor文</h1>
+  <header>
+  
+  <div class="avatar">
+    <img class="avatarMask" src="https://github.com/linglingapp/hugolog/img/avatar.jpg" alt="">
+    <a href="https://github.com/linglingapp/hugolog"><img class="avatar-border" src="https://github.com/linglingapp/hugolog/img/avatar-border.svg" alt=""></a>
+  </div>
+  
+  <h2><a class="author" href="https://github.com/linglingapp/hugolog">Seo Mincheol</a></h2>
+</header>
+
+  
+  
+  
+  <p class="date">January 24, 2020</p>
+  
+  
+  
+  
+  <div id="contentBody">
+    <h2 id="switch-case">switch-case</h2>
+<p><code>if</code>と<code>else</code>を何回も繰り返して書くのは面倒だ。もっと短く書きたい。そこで使うのは<code>switch</code>と<code>case</code>である。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;os&#34;</span>
+    <span style="color:#e6db74">&#34;bufio&#34;</span>
+    <span style="color:#e6db74">&#34;strings&#34;</span>
+    <span style="color:#e6db74">&#34;strconv&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;演算する数字を入力してください。&#34;</span>)
+    <span style="color:#a6e22e">reader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">bufio</span>.<span style="color:#a6e22e">NewReader</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stdin</span>)
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span>  <span style="color:#f92672">:=</span> <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+    <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;数字をもう一つ入力してください。&#34;</span>)
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+    <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;入力した数字は，%d，%dです。&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>)
+
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;続いて，演算子を「+, -, *, /」の中から選んでください。&#34;</span>)
+
+    <span style="color:#a6e22e">line</span>, <span style="color:#a6e22e">_</span> = <span style="color:#a6e22e">reader</span>.<span style="color:#a6e22e">ReadString</span>(<span style="color:#e6db74">&#39;\n&#39;</span>)
+    <span style="color:#a6e22e">line</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">TrimSpace</span>(<span style="color:#a6e22e">line</span>)
+
+    <span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">line</span> {
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;+&#34;</span>:
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d + %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">n2</span>)
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;-&#34;</span>:
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d - %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">n2</span>)
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;*&#34;</span>:
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d * %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">n2</span>)
+    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;/&#34;</span>:
+         <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d / %d = %d\n&#34;</span>, <span style="color:#a6e22e">n1</span>, <span style="color:#a6e22e">n2</span>, <span style="color:#a6e22e">n1</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">n2</span>)
+    <span style="color:#66d9ef">default</span>:
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;入力が間違っています。&#34;</span>)
+    }
+}</code></pre></div>
+<p><code>switch</code>にあるものと一致するのかを，一番上にある<code>case</code>から確認していく。もし，一致するのであれば，以下の<code>case</code>はチェックせずに，関数を抜け出す。したがって，条件に一致するケースが二つ以上並んでいる場合，最も上にある<code>case</code>が優先的に実行されるのである。
+なお，<code>switch</code>の値は省略できる。その場合，値は<code>true</code>と設定される。</p>
+<h2 id="for文">for文</h2>
+<p>他の言語には，<code>for</code>と<code>while</code>の二つがある場合が多い。しかし，Go言語には<code>for</code>しかない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+        <span style="color:#75715e">// 以下は「i = i + 1」や「i += 1」と同じである。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;最終的なiの値は&#34;</span>, <span style="color:#a6e22e">i</span>, <span style="color:#e6db74">&#34;です。&#34;</span>)
+}</code></pre></div>
+<p>for文には，「前処理文」「条件文」「後処理文」を表現することができる。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// 前処理文; 条件文; 後処理文
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;最終的なiの値は&#34;</span>, <span style="color:#a6e22e">i</span>, <span style="color:#e6db74">&#34;です。&#34;</span>)
+}</code></pre></div>
+<p>しかし，上記のコードを実行するとエラーが生じる。iのスコープが問題となっているからだ。
+for i := 0
+以上のようにfor文の中で設定したiは，for文の外で使うことはできない。iのスコープはfor文の中までである。このとき，変数の宣言はfor文の外ですればいい。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// for文の外でiを宣言。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">i</span> <span style="color:#66d9ef">int</span>
+    <span style="color:#75715e">// 前処理文（iに値を代入。宣言ではない。「:=」ではないことに注意。）; 条件文; 後処理文
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> = <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;最終的なiの値は&#34;</span>, <span style="color:#a6e22e">i</span>, <span style="color:#e6db74">&#34;です。&#34;</span>)
+}</code></pre></div>
+<p>変数の名前が同じくiになっているので紛らわしい。では，スコープの違いを浮き彫りにするために，変数の名前を変えてみよう。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#75715e">// for文の外でjを宣言。
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">j</span> <span style="color:#66d9ef">int</span>
+    <span style="color:#75715e">// 前処理文; 条件文; 後処理文
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;最終的なjの値は&#34;</span>, <span style="color:#a6e22e">j</span>, <span style="color:#e6db74">&#34;です。&#34;</span>)
+}</code></pre></div>
+<p>「最終的なjの値は 0 です。」と出力される。つまり，iとjは異なる変数，ということである。可能であれば，変数名は人間が読んで紛らわしくない名前にするのがいい。</p>
+<h2 id="breakとcontinue">breakとcontinue</h2>
+<p>for文に条件を書かないと，<code>true</code>として認識し，無限ループとなる。また，for文は，<code>break</code>と<code>continue</code>と組み合わせる場合も多い。</p>
+<p><code>break</code>を使うことにより，iは10にならず，5になったときに，for文をbreakする。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> {
+            <span style="color:#66d9ef">break</span>
+        }
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+    }
+}</code></pre></div>
+<p>一方，<code>continue</code>は該当する値を飛ばして，次の作業を続ける。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#ae81ff">10</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">5</span> {
+            <span style="color:#66d9ef">continue</span>
+        }
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">i</span>)
+    }
+}</code></pre></div>
+<h2 id="for文で九九">for文で九九</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-GO" data-lang="GO"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">base</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">base</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">9</span>; <span style="color:#a6e22e">base</span><span style="color:#f92672">++</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%dの段\n&#34;</span>, <span style="color:#a6e22e">base</span>)
+
+        <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">j</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">9</span>; <span style="color:#a6e22e">j</span><span style="color:#f92672">++</span> {
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;%d * %d = %d\n&#34;</span>, <span style="color:#a6e22e">base</span>, <span style="color:#a6e22e">j</span>, <span style="color:#a6e22e">base</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">j</span>)
+        }
+        <span style="color:#75715e">// 「Println()」のように何も書かないと，一行空ける。
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>()
+    }
+}</code></pre></div>
+
+  </div>
+  <footer>
+  <p>
+  &copy; 2019 Seo Mincheol.
+  Powered by <a href="https://gohugo.io/">Hugo</a>
+  using the <a href="https://github.com/koirand/pulp/">pulp</a> theme.
+  </p>
+</footer>
+
+
+  </body>
+</html>

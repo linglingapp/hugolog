@@ -49,10 +49,3 @@ hasCJKLanguage = true
     pre = "<i class='fab fa-github fa-lg'></i>"
     url = "https://github.com/linglingapp"
     weight = 30
-
-[[menu.main]]
-    identifier = "email"
-    # name = "Email"
-    pre = "<i class='fa fa-envelope fa-lg'></i>"
-    url = "mailto:"
-    weight = 40

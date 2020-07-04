@@ -1,5 +1,5 @@
-baseurl = "https://trusting-spence-e71272.netlify.app/"
-title = "Construction"
+baseurl = "https://usage.netlify.app/"
+title = "日本語と韓国語の用法"
 theme = "pulp"
 canonifyurls = true
 hasCJKLanguage = true
@@ -16,8 +16,7 @@ hasCJKLanguage = true
     # avatarDescription = "My avatar description"
     favicon = "favicon.ico"
     description = """
-        Please write anything here.
-        Profiles, backgrounds, favorite things etc.
+        日本語と韓国語の用法について。
     """
     publicationYear = "2019"
     # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
@@ -48,7 +47,7 @@ hasCJKLanguage = true
     identifier = "github"
     # name = "GitHub"
     pre = "<i class='fab fa-github fa-lg'></i>"
-    url = "https://github.com/username"
+    url = "https://github.com/linglingapp"
     weight = 30
 
 [[menu.main]]

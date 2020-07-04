@@ -1,6 +1,6 @@
 [
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go1.ja/",
+        "ref": "https://usage.netlify.app/blog/go1.ja/",
         "title": "変数",
         "section": "blog",
         "tags": null,
@@ -9,7 +9,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go2.ja/",
+        "ref": "https://usage.netlify.app/blog/go2.ja/",
         "title": "演算子",
         "section": "blog",
         "tags": null,
@@ -18,7 +18,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go3.ja/",
+        "ref": "https://usage.netlify.app/blog/go3.ja/",
         "title": "条件演算子と条件文",
         "section": "blog",
         "tags": null,
@@ -27,7 +27,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go4.ja/",
+        "ref": "https://usage.netlify.app/blog/go4.ja/",
         "title": "switch-caseとfor文",
         "section": "blog",
         "tags": null,
@@ -36,25 +36,25 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go5.ja/",
+        "ref": "https://usage.netlify.app/blog/go5.ja/",
         "title": "関数",
         "section": "blog",
         "tags": null,
         "date" : "2020.01.20",
-        "body": "関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値はreturnで返される。 プログラマーは，なぜ関数を使うのだろうか。ここには二つの理由があると思われる。一つは，繰り返しが嫌なので特定の機能を「モジュール化」したいからであり，もう一つは，機能を分離したいからであろう。 ある機能をモジュール化しておくと，自分がその機能を手軽に使えるだけでなく，他の人もそれを呼び出し，簡単に使うことができる。その際，モジュールの中には，なるべく最小限の機能を含んでいるのが望ましい。余計なものまで読み込む必要はないし，機能別に分けている方が読みやすいし，メンテナンスもしやすいからである。\n簡単な関数を作ってみよう。\npackage main import \u0026#34;fmt\u0026#34; // 引数として関数がもらうのは，intタイプのxとy二つである。returnで返されるのは，intタイプ一つのみである。 func add(x int, y int) int { return x + y } func main() { for i := 0; i \u0026lt; 10; i++ { // add関数を呼び出し，iとi+2という引数を渡す。  // 最初に渡されるのは0と2である。次は1と3が渡される。  fmt.Printf(\u0026#34;%d + %d = %d\\n\u0026#34;, i, i+2, add(i, i+2)) } } もう一つ，関数を作ってみよう。二つのfuncの位置は，一方が上でも，下でも関係ない。\npackage main import \u0026#34;fmt\u0026#34; func main() { // `fun1`という関数を呼び出して，引数として2と3を渡す。  // `return`された結果は，それぞれaとbという変数に格納される。  a, b := fun1(2, 3) fmt.Println(a, b) } // `return`するのが二つ以上の場合，括弧で囲む。 func fun1(x, y int) (int, int) { // xとyを受け取ったが，返すのは逆の順番であるyとx。  return y, x } 関数の中で，他の関数を呼び出すこともできる。\npackage main import \u0026#34;fmt\u0026#34; func main() { a, b := fun1(2, 3) fmt.Println(a, b) } func fun1(x, y int) (int, int) { // 関数fun2を呼び出す。  fun2(x, y) return y, x } // 上にあるfun1のx，yは，下のfun2にあるx，yは，同じものではない。 // 人間が読んでわかりやすい変数名を付けよう。 func fun2(x, y int) { fmt.Println(\u0026#34;fun2\u0026#34;, x, y) } 関数の再帰呼び出し 関数の中で，他の関数ではなく，自分自身を呼び出すこともできる。これを再帰呼び出し（recursive call）と言う。\npackage main import \u0026#34;fmt\u0026#34; func main() { f1(10) } func f1(x int) { // xが0に等しい場合は，`f1`関数が終わる。  // `main`関数に戻るのは`return`が実行された後である。  if x == 0 { return } fmt.Println(x) // 関数`f1`の中で，再び関数`f1`を呼び出す。  f1(x - 1) } 再帰呼び出しを利用して，1から10まで足していく関数を作ってみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // `sum`関数に10と0を渡す。  // 結果が`return`されると変数sに格納する。  s := sum(10, 0) fmt.Println(s) } // 最初に，xとsには10と0が代入される。 func sum(x int, s int) int { // xが0になった場合，sを返す。  if x == 0 { return s } // sにxの値を足してsの値を更新する。  // 最初は，10 = 10 + 0なのでsは10。  s += x // 再帰呼び出しで`sum`関数を呼び出す。  // 最初は，10と10が渡されが，x-1なので9と10。  return sum(x-1, s) } 結果として，55が出力される。\n上記のような関数の再帰呼び出しの代わりに，for文を使うこともできる。逆に，for文を再帰呼び出しを利用して書くことも可能である。それでは，どちらを使うべきか。それは目的によって違ってくる。\nfor文より，再帰呼び出しを利用した方がいい例として，フィボナッチ数列を考えてみよう。\nフィボナッチ数列は，以下のように定義される。\n f(0)=1 f(1)=1 f(x)=f(x-1)+f(x-2)  たとえば，f(2)の場合，f(2-1)+f(2-2)，つまり，f(1)+f(0)なので定義に従って結果は2となる。そして，f(3)は3，f(4)は5のようになる。\nそれでは，フィボナッチ数列を再帰呼び出しを使って書いてみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // ここでは，f(10)の値を求めてみよう。  result := f(10) fmt.Println(result) } func f(x int) int { // f(0)=1  if x == 0 { return 1 } // f(1)=1  if x == 1 { return 1 } // f(x)=f(x-1)+f(x-2)  return f(x-1) + f(x-2) } 結果は，89である。このように，数学的に定義されているものをプログラミングする場合は，再帰呼び出しを用いるのがよい。これをfor文で表すこともできるが，やや難しい。\n再帰呼び出しは，for文より遅い。にもかかわらず，再帰呼び出しを使う理由の一つは，数学的定義をよく表現できるからである。\nHaskell，Lisp，Scalaのような関数型プログラミング言語は，再帰呼び出しに特化されている。そのため，メモリの消費や速度など，あまり気にせず，再帰呼び出しを使うことができる。一方，Go言語は関数型言語ではないので，メモリの消費量も多く，遅い。そのため，同じ結果を導き出すのに，再帰呼び出しより，for文の方が早いと言える。むろん，上記のような簡単なプログラミングだけを見ると，どちらにしても関係なさそうだが。\n"
+        "body": "関数 プログラミングにおける関数は，特定な機能を集めておいたものだと考えればいい。 Go言語で関数はfuncから始まる。そして，最後に得られた値はreturnで返される。 プログラマーは，なぜ関数を使うのだろうか。ここには二つの理由があると思われる。一つは，繰り返しが嫌なので特定の機能を「モジュール化」したいからであり，もう一つは，機能を分離したいからであろう。 ある機能をモジュール化しておくと，自分がその機能を手軽に使えるだけでなく，他の人もそれを呼び出し，簡単に使うことができる。その際，モジュールの中には，なるべく最小限の機能を含んでいるのが望ましい。余計なものまで読み込む必要はないし，機能別に分けている方が読みやすいし，メンテナンスもしやすいからである。\n簡単な関数を作ってみよう。\npackage main import \u0026#34;fmt\u0026#34; // 引数として関数がもらうのは，intタイプのxとy二つである。returnで返されるのは，intタイプ一つのみである。 func add(x int, y int) int { return x + y } func main() { for i := 0; i \u0026lt; 10; i++ { // add関数を呼び出し，iとi+2という引数を渡す。  // 最初に渡されるのは0と2である。次は1と3が渡される。  fmt.Printf(\u0026#34;%d + %d = %d\\n\u0026#34;, i, i+2, add(i, i+2)) } } もう一つ，関数を作ってみよう。二つのfuncの位置は，一方が上でも，下でも関係ない。\npackage main import \u0026#34;fmt\u0026#34; func main() { // `fun1`という関数を呼び出して，引数として2と3を渡す。  // `return`された結果は，それぞれaとbという変数に格納される。  a, b := fun1(2, 3) fmt.Println(a, b) } // `return`するのが二つ以上の場合，括弧で囲む。 func fun1(x, y int) (int, int) { // xとyを受け取ったが，返すのは逆の順番であるyとx。  return y, x } 関数の中で，他の関数を呼び出すこともできる。\npackage main import \u0026#34;fmt\u0026#34; func main() { a, b := fun1(2, 3) fmt.Println(a, b) } func fun1(x, y int) (int, int) { // 関数fun2を呼び出す。  fun2(x, y) return y, x } // 上にあるfun1のx，yは，下のfun2にあるx，yは，同じものではない。 // 人間が読んでわかりやすい変数名を付けよう。 func fun2(x, y int) { fmt.Println(\u0026#34;fun2\u0026#34;, x, y) } 関数の再帰呼び出し 関数の中で，他の関数ではなく，自分自身を呼び出すこともできる。これを再帰呼び出し（recursive call）と言う。\npackage main import \u0026#34;fmt\u0026#34; func main() { f1(10) } func f1(x int) { // xが0に等しい場合は，`f1`関数が終わる。  // `main`関数に戻るのは`return`が実行された後である。  if x == 0 { return } fmt.Println(x) // 関数`f1`の中で，再び関数`f1`を呼び出す。  f1(x - 1) } 再帰呼び出しを利用して，1から10まで足していく関数を作ってみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // `sum`関数に10と0を渡す。  // 結果が`return`されると変数sに格納する。  s := sum(10, 0) fmt.Println(s) } // 最初に，xとsには10と0が代入される。 func sum(x int, s int) int { // xが0になった場合，sを返す。  if x == 0 { return s } // sにxの値を足してsの値を更新する。  // 最初は，10 = 10 + 0なのでsは10。  s += x // 再帰呼び出しで`sum`関数を呼び出す。  // 最初は，10と10が渡されが，x-1なので9と10。  return sum(x-1, s) } 結果として，55が出力される。\n上記のような関数の再帰呼び出しの代わりに，for文を使うこともできる。逆に，for文を再帰呼び出しを利用して書くことも可能である。それでは，どちらを使うべきか。それは目的によって違ってくる。\nfor文より，再帰呼び出しを利用した方がいい例として，フィボナッチ数列を考えてみよう。\nフィボナッチ数列は，以下のように定義される。\n f(0)=1 f(1)=1 f(x)=f(x-1)+f(x-2)  たとえば，f(2)の場合，f(2-1)+f(2-2)，つまり，f(1)+f(0)なので定義に従って結果は2となる。そして，f(3)は3，f(4)は5のようになる。\nそれでは，フィボナッチ数列を再帰呼び出しを使って書いてみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // ここでは，f(10)の値を求めてみよう。  result := f(10) fmt.Println(result) } func f(x int) int { // f(0)=1  if x == 0 { return 1 } // f(1)=1  if x == 1 { return 1 } // f(x)=f(x-1)+f(x-2)  return f(x-1) + f(x-2) } 結果は，89である。このように，数学的に定義されているものをプログラミングする場合は，再帰呼び出しを用いるのがよい。これをfor文で表すこともできるが，やや難しい。\n再帰呼び出しは，for文より遅い。にもかかわらず，再帰呼び出しを使う理由の一つは，数学的定義をよく表現できるからである。\nHaskell，Lisp，Scalaのような関数型プログラミング言語は，再帰呼び出しに特化されている。そのため，メモリの消費や速度など，あまり気にせず，再帰呼び出しを使うことができる。一方，Go言語は関数型言語ではないので，メモリの消費量も多く，遅い。そのため，同じ結果を導き出すのに，再帰呼び出しより，for文の方が早いと言える。むろん，上記のような簡単なプログラミングだけを見ると，どちらにしても関係なさそうだが。\n여기서도 알아보도록 하자.\n"
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/go6.ja/",
+        "ref": "https://usage.netlify.app/blog/go6.ja/",
         "title": "配列",
         "section": "blog",
         "tags": null,
         "date" : "2020.01.19",
-        "body": "配列の宣言 変数には一つ以上の値を入れることもできる。配列（array）を使えば，たくさんの値を格納することができる。\npackage main import \u0026#34;fmt\u0026#34; func main() { // 箱（配列）を10個作ろう。箱のタイプは整数タイプ。  var A [10]int // len(A)は，変数Aの長さ（length）を意味する。  // つまり，len(A)は10と書くのと同じ。  for i := 0; i \u0026lt; len(A); i++ { // Aという箱にi*iの値を入れる。  A[i] = i * i } fmt.Println(A) } ちなみに，文字列（string）も配列である。「Hello world!」は12byteからなっている配列である。英数字1文字やスペース一つは，1byteに該当する。Go言語では，UTF-8（1～4byteを使用してUnicode文字を表す）を使用する。ASCII文字は，1byteで済むが，漢字やハングルなどは，2～4byteが必要である。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello World!\u0026#34; for i := 0; i \u0026lt; len(s); i++ { fmt.Print(s[i], \u0026#34;, \u0026#34;) } } 上記を実行すると「Hello world!」の文字コード，つまり，72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33が現れる。英語は1byteからなっているのがわかる。一方，漢字や平仮名，ハングルは3byteである。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello 世界!\u0026#34; for i := 0; i \u0026lt; len(s); i++ { fmt.Print(s[i], \u0026#34;, \u0026#34;) } } 72, 101, 108, 108, 111, 32, 228, 184, 150, 231, 149, 140, 33と出力される。「世界」に該当する部分は228, 184, 150, 231, 149, 140で，1文字3byteである。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello 世界!\u0026#34; // runeは変数のタイプの一つ。  // runeタイプは1～3byteの長さを持つ。  // runeタイプは文字（英語・漢字など）によって長さが変わる。  s2 := []rune(s) for i := 0; i \u0026lt; len(s2); i++ { fmt.Print(s2[i], \u0026#34;, \u0026#34;) } } これの結果は72, 101, 108, 108, 111, 32, 19990, 30028, 33である。これは合計13byteであり，9byteではない。19990や30028，つまり，「世」と「界」はそれぞれ3byteである。 runeはいつ使うのだろうか。文字列の長さを文字単位で求めたい場合，runeタイプにしないと，1byte以上の文字は文字化けする。言い換えると，「世」に該当する3byteが228, 184, 150と出力されるので，文字化けするのである。これらを一つにまとめるためにruneを使うと，「世」は19990となり，文字化けしない。\npackage main import ( \u0026#34;fmt\u0026#34; \u0026#34;unicode/utf8\u0026#34; ) func main() { world1 := \u0026#34;world\u0026#34; world2 := \u0026#34;世界の平和\u0026#34; fmt.Println(utf8.RuneCountInString(world1)) fmt.Println(utf8.RuneCountInString(world2)) } 上記を実行すると，いずれも5となる。それぞれの文字列が五つのruneを持つのである。\n配列のコピー 配列をコピーしたい場合は，どのようにすればいいのだろうか。早速例を見てみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // 新しい配列を作り，数字を格納  arr := [5]int{1, 2, 3, 4, 5} // また新しい配列を作る  clone := [5]int{} for i := 0; i \u0026lt; 5; i++ { // 配列をコピー  clone[i] = arr[i] } fmt.Println(clone) } 上記は配列を順序もそのままコピーした。今度は逆順にコピーしてみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { arr := [5]int{1, 2, 3, 4, 5} // forはarrの長さの半分繰り返す  for i := 0; i \u0026lt; len(arr)/2; i++ { // 二重代入を使う  // 左のarr[i]にはarr[len(arr)-1-i]が入る  // 左のarr[len(arr)-1-i]にはarr[i]が入る  arr[i], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[i] } fmt.Println(arr) } 真ん中の3はそのままなので，いじらなくてもいい。\nRadix Sort ※　以下の内容は，やや専門的なところに踏み込むので，飛ばしても関係ない。\nRADIXアルゴリズムは，単純，かつ，速い。元素の範囲が十分に限定されており，配列の個数が少ないときに適切である。「元素の範囲」は，たとえば，「1から100まで」，または，「-100000から100000まで」のようなものを意味する。後者のように，元素の範囲が広い場合，RADIXアルゴリズムは不利である。ソートをするアルゴリズムはRADIX以外にもいくつかあるので，このように元素の範囲が広いときには，他のアルゴリズムを使うのがいいだろう。\n以下のプログラムを実行すると，配列に入っている{0, 5, 4, 9, 1, 2, 8, 3, 6, 4, 5}が[0 1 2 3 4 4 5 5 6 8 9]のように，ソートされる。\npackage main import \u0026#34;fmt\u0026#34; func main() { // 以下の配列をソートしたい  arr := [11]int{0, 5, 4, 9, 1, 2, 8, 3, 6, 4, 5} // 上記の配列をソートするために必要な箱は，0から9までの10個  // arr配列に10は入っていないので，temp配列に無駄な箱（10）を作る必要はない  temp := [10]int{} for i := 0; i \u0026lt; len(arr); i++ { // arr配列に入っている数字を，順番に読み込み，変数（index）に格納する  index := arr[i] // arr配列にある数字が何個あったのかを数えて，temp配列に格納する  temp[index]++ } idx := 0 // temp配列の長さより小さければ，繰り返す  for i := 0; i \u0026lt; len(temp); i++ { // 現在，temp配列は[1 1 1 1 2 2 1 0 1 1]となっている  // なので，最大の繰り返しの回数は2回  for j := 0; j \u0026lt; temp[i]; j++ { // 最初はarr配列の最初の箱に入っている数字（0）を（0）に書き換える  // arr配列の2番目に入っている数字は5だが，i（1）に書き換える  // 同じ数字が二つある場合，temp配列はそれを2で表している  // jが2より小さい場合，作業は2回繰り返されるので，  // arr配列には同じ数字が連続して2回プッシュされる  arr[idx] = i // 5，6番目の配列（arr[idx]）に4（i）は2回プッシュされる  idx++ } } fmt.Println(arr) } 数字以外には，たとえば，ローマ字で書かれている人の名前をアルファベットの順番で並び替えることができる。RADIXソートは使用場面が限られているので，プログラミングをする前に，まず，この方法が使用可能なのかどうかを確認しておいた方がいいだろう。\n"
+        "body": "配列の宣言 変数には一つ以上の値を入れることもできる。配列（array）を使えば，たくさんの値を格納することができる。 고에 대해 알아보도록 하자. package main import \u0026#34;fmt\u0026#34; func main() { // 箱（配列）を10個作ろう。箱のタイプは整数タイプ。  var A [10]int // len(A)は，変数Aの長さ（length）を意味する。  // つまり，len(A)は10と書くのと同じ。  for i := 0; i \u0026lt; len(A); i++ { // Aという箱にi*iの値を入れる。  A[i] = i * i } fmt.Println(A) }\nちなみに，文字列（string）も配列である。「Hello world!」は12byteからなっている配列である。英数字1文字やスペース一つは，1byteに該当する。Go言語では，UTF-8（1～4byteを使用してUnicode文字を表す）を使用する。ASCII文字は，1byteで済むが，漢字やハングルなどは，2～4byteが必要である。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello World!\u0026#34; for i := 0; i \u0026lt; len(s); i++ { fmt.Print(s[i], \u0026#34;, \u0026#34;) } } 上記を実行すると「Hello world!」の文字コード，つまり，72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33が現れる。英語は1byteからなっているのがわかる。一方，漢字や平仮名，ハングルは3byteである。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello 世界!\u0026#34; for i := 0; i \u0026lt; len(s); i++ { fmt.Print(s[i], \u0026#34;, \u0026#34;) } } 72, 101, 108, 108, 111, 32, 228, 184, 150, 231, 149, 140, 33と出力される。「世界」に該当する部分は228, 184, 150, 231, 149, 140で，1文字3byteである。\npackage main import \u0026#34;fmt\u0026#34; func main() { s := \u0026#34;Hello 世界!\u0026#34; // runeは変数のタイプの一つ。  // runeタイプは1～3byteの長さを持つ。  // runeタイプは文字（英語・漢字など）によって長さが変わる。  s2 := []rune(s) for i := 0; i \u0026lt; len(s2); i++ { fmt.Print(s2[i], \u0026#34;, \u0026#34;) } } これの結果は72, 101, 108, 108, 111, 32, 19990, 30028, 33である。これは合計13byteであり，9byteではない。19990や30028，つまり，「世」と「界」はそれぞれ3byteである。 runeはいつ使うのだろうか。文字列の長さを文字単位で求めたい場合，runeタイプにしないと，1byte以上の文字は文字化けする。言い換えると，「世」に該当する3byteが228, 184, 150と出力されるので，文字化けするのである。これらを一つにまとめるためにruneを使うと，「世」は19990となり，文字化けしない。\npackage main import ( \u0026#34;fmt\u0026#34; \u0026#34;unicode/utf8\u0026#34; ) func main() { world1 := \u0026#34;world\u0026#34; world2 := \u0026#34;世界の平和\u0026#34; fmt.Println(utf8.RuneCountInString(world1)) fmt.Println(utf8.RuneCountInString(world2)) } 上記を実行すると，いずれも5となる。それぞれの文字列が五つのruneを持つのである。\n配列のコピー 配列をコピーしたい場合は，どのようにすればいいのだろうか。早速例を見てみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { // 新しい配列を作り，数字を格納  arr := [5]int{1, 2, 3, 4, 5} // また新しい配列を作る  clone := [5]int{} for i := 0; i \u0026lt; 5; i++ { // 配列をコピー  clone[i] = arr[i] } fmt.Println(clone) } 上記は配列を順序もそのままコピーした。今度は逆順にコピーしてみよう。\npackage main import \u0026#34;fmt\u0026#34; func main() { arr := [5]int{1, 2, 3, 4, 5} // forはarrの長さの半分繰り返す  for i := 0; i \u0026lt; len(arr)/2; i++ { // 二重代入を使う  // 左のarr[i]にはarr[len(arr)-1-i]が入る  // 左のarr[len(arr)-1-i]にはarr[i]が入る  arr[i], arr[len(arr)-1-i] = arr[len(arr)-1-i], arr[i] } fmt.Println(arr) } 真ん中の3はそのままなので，いじらなくてもいい。\nRadix Sort ※　以下の内容は，やや専門的なところに踏み込むので，飛ばしても関係ない。\nRADIXアルゴリズムは，単純，かつ，速い。元素の範囲が十分に限定されており，配列の個数が少ないときに適切である。「元素の範囲」は，たとえば，「1から100まで」，または，「-100000から100000まで」のようなものを意味する。後者のように，元素の範囲が広い場合，RADIXアルゴリズムは不利である。ソートをするアルゴリズムはRADIX以外にもいくつかあるので，このように元素の範囲が広いときには，他のアルゴリズムを使うのがいいだろう。\n以下のプログラムを実行すると，配列に入っている{0, 5, 4, 9, 1, 2, 8, 3, 6, 4, 5}が[0 1 2 3 4 4 5 5 6 8 9]のように，ソートされる。\npackage main import \u0026#34;fmt\u0026#34; func main() { // 以下の配列をソートしたい  arr := [11]int{0, 5, 4, 9, 1, 2, 8, 3, 6, 4, 5} // 上記の配列をソートするために必要な箱は，0から9までの10個  // arr配列に10は入っていないので，temp配列に無駄な箱（10）を作る必要はない  temp := [10]int{} for i := 0; i \u0026lt; len(arr); i++ { // arr配列に入っている数字を，順番に読み込み，変数（index）に格納する  index := arr[i] // arr配列にある数字が何個あったのかを数えて，temp配列に格納する  temp[index]++ } idx := 0 // temp配列の長さより小さければ，繰り返す  for i := 0; i \u0026lt; len(temp); i++ { // 現在，temp配列は[1 1 1 1 2 2 1 0 1 1]となっている  // なので，最大の繰り返しの回数は2回  for j := 0; j \u0026lt; temp[i]; j++ { // 最初はarr配列の最初の箱に入っている数字（0）を（0）に書き換える  // arr配列の2番目に入っている数字は5だが，i（1）に書き換える  // 同じ数字が二つある場合，temp配列はそれを2で表している  // jが2より小さい場合，作業は2回繰り返されるので，  // arr配列には同じ数字が連続して2回プッシュされる  arr[idx] = i // 5，6番目の配列（arr[idx]）に4（i）は2回プッシュされる  idx++ } } fmt.Println(arr) } 数字以外には，たとえば，ローマ字で書かれている人の名前をアルファベットの順番で並び替えることができる。RADIXソートは使用場面が限られているので，プログラミングをする前に，まず，この方法が使用可能なのかどうかを確認しておいた方がいいだろう。\n"
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/markdown-syntax/",
+        "ref": "https://usage.netlify.app/blog/markdown-syntax/",
         "title": "マークダウン",
         "section": "blog",
         "tags": ["markdown","css","html","themes"],
@@ -63,7 +63,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/rich-content/",
+        "ref": "https://usage.netlify.app/blog/rich-content/",
         "title": "Rich Content",
         "section": "blog",
         "tags": ["shortcodes","privacy"],
@@ -72,7 +72,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/placeholder-text/",
+        "ref": "https://usage.netlify.app/blog/placeholder-text/",
         "title": "Placeholder Text",
         "section": "blog",
         "tags": ["markdown","text"],
@@ -81,7 +81,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/math-typesetting/",
+        "ref": "https://usage.netlify.app/blog/math-typesetting/",
         "title": "Math Typesetting",
         "section": "blog",
         "tags": null,
@@ -90,7 +90,7 @@
     }
 ,
     {
-        "ref": "https://trusting-spence-e71272.netlify.app/blog/emoji-support/",
+        "ref": "https://usage.netlify.app/blog/emoji-support/",
         "title": "Emoji Support",
         "section": "blog",
         "tags": ["emoji"],

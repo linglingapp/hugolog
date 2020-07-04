@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Construction</title>
-    <link>https://trusting-spence-e71272.netlify.app/categories/</link>
-    <description>Recent content in Categories on Construction</description>
+    <title>Categories on 日本語と韓国語の用法</title>
+    <link>https://usage.netlify.app/categories/</link>
+    <description>Recent content in Categories on 日本語と韓国語の用法</description>
     <generator>Hugo -- gohugo.io</generator>
     
-	<atom:link href="https://trusting-spence-e71272.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://usage.netlify.app/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

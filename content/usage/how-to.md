@@ -1,17 +1,14 @@
 ---
-title: "マークダウン"
-date: 2019-03-11
+title: "使用法/사용법"
+date: 2020-07-01
 draft: false
 tags: [
-    "markdown",
-    "css",
-    "html",
-    "themes",
+    "お知らせ",
+    "알림",
 ]
 ---
-
-日本語はどうかな。
-This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.
+何のためにこのようなウェブサイトを作ったのか，簡単に説明します。
+무엇 때문에 이 웹사이트를 만들었는지, 간단히 말씀 드리겠습니다.
 <!--more-->
 
 ## Headings
